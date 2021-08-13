@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.silofinance.silo.budget.BudgetViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/fb_tbb_bg"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/colorPrimary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/fb_tbb_click"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.onTbbClicked()}"
+            android:padding="12dp"
+            android:scrollbars="none"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:drawableEndCompat="@drawable/ic_move_money" />
+
+        <TextView
+            android:id="@+id/fb_tbb_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="72dp"
+            android:text="fb_tbb_value"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@+id/fb_tbb_label" />
+
+        <TextView
+            android:id="@+id/fb_tbb_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:text="fb_tbb_label"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@android:color/white"
+            app:layout_constraintTop_toTopOf="@+id/fb_tbb_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/fb_tbb_bg"
+            app:layout_constraintStart_toEndOf="@+id/fb_tbb_value"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/fb_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="To add a category,\nswitch to edit mode..."
+            android:visibility="gone"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_gray"
+            android:textSize="18sp"
+            android:paddingTop="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/fb_hint_arrow"
+            app:layout_constraintTop_toTopOf="@+id/fb_hint_arrow" />
+
+        <ImageView
+            android:id="@+id/fb_hint_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="270"
+            android:padding="16dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/fb_tbb_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_corner_arrow" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fb_recycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layoutAnimation="@anim/recycler_load_animation_fast"
+            android:visibility="gone"
+            android:paddingBottom="104dp"
+            android:clipToPadding="false"
+            android:scrollbarStyle="outsideOverlay"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fb_tbb_bg" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fb_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            android:onClick="@{() -> viewModel.onFabClicked()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_fab" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

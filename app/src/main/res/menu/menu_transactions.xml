@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+
+<!--    <item-->
+<!--        android:id="@+id/menu_transactions_filter"-->
+<!--        android:icon="@drawable/ic_filter"-->
+<!--        android:title="Filter Transactions"-->
+<!--        app:showAsAction="always" />-->
+<!--    <item-->
+<!--        android:id="@+id/menu_transactions_sort"-->
+<!--        android:icon="@drawable/ic_sort"-->
+<!--        android:title="Sort Transactions"-->
+<!--        app:showAsAction="always" />-->
+</menu>

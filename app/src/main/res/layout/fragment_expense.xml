@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.silofinance.silo.expense.ExpenseViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/fe_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="32dp"
+            android:scrollbars="vertical"
+            android:scrollbarDefaultDelayBeforeFade="999999"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/fe_amount">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/fe_account_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Account"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fe_account"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="16dp"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fe_account_label" />
+
+                <View
+                    android:id="@+id/fe_acc_cat_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="invisible"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintTop_toBottomOf="@id/fe_account" />
+
+                <TextView
+                    android:id="@+id/fe_category_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Category"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_gray"
+                    android:textSize="18sp"
+                    android:visibility="invisible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fe_acc_cat_divider" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fe_category"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="16dp"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fe_category_label" />
+
+                <View
+                    android:id="@+id/fe_cat_amount_divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="invisible"
+                    android:background="@android:color/darker_gray"
+                    app:layout_constraintTop_toBottomOf="@id/fe_category" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <EditText
+            android:id="@+id/fe_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Amount"
+            android:imeOptions="actionNext"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="@+id/fe_note"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/fe_note" />
+
+        <CheckBox
+            android:id="@+id/fe_cleared"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cleared"
+            android:textSize="18sp"
+            android:translationX = "-4dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/fe_amount"
+            app:layout_constraintStart_toStartOf="@+id/fe_date" />
+
+        <EditText
+            android:id="@+id/fe_note"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="32dp"
+            android:hint="Note"
+            android:imeOptions="actionDone"
+            android:inputType="textCapSentences"
+            app:layout_constraintEnd_toStartOf="@+id/fe_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/fe_cancel" />
+
+        <Button
+            android:id="@+id/fe_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="Button"
+            app:layout_constraintBaseline_toBaselineOf="@+id/fe_note"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@id/fe_cancel"
+            app:layout_constraintStart_toStartOf="@id/fe_cancel"
+            app:layout_constraintEnd_toEndOf="@+id/fe_ok"/>
+
+        <TextView
+            android:id="@+id/fe_cancel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:fontFamily="sans-serif-medium"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:gravity="center"
+            android:text="CANCEL"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/fe_ok"
+            app:layout_constraintEnd_toStartOf="@+id/fe_ok"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="0dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintTop_toTopOf="@id/fe_cancel"
+            app:layout_constraintBottom_toBottomOf="@+id/fe_cancel"
+            app:layout_constraintStart_toEndOf="@+id/fe_cancel"/>
+
+        <TextView
+            android:id="@+id/fe_ok"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:fontFamily="sans-serif-medium"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:gravity="center"
+            android:text="OK"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/fe_cancel" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="account"
+            type="com.silofinance.silo.db.Account" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="104dp">
+
+<!-- Ok so this is clearly a mess, don't even try to look at the design tab. We have an emoji placeholder, which is an emoji with the same position as it is on
+the accounts fragment. We need this for baselines. Then we have an edit placeholder, which is an EditText baseline constrained to the emoji placeholder. It has
+the 😂 emoji and it set to wrap content, and then set invisible. This is done so the final emoji EditText can constrain its start and end to the
+emoji_edit_placeholder, so that when you empty the EditText it still has the right width line. The name placeholder is there to get the name EditText to
+baseline constrain in the right place. -->
+
+        <TextView
+            android:id="@+id/liaa_emoji_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="😂"
+            android:visibility="invisible"
+            android:textSize="42sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55" />
+
+        <EditText
+            android:id="@+id/liaa_emoji_edit_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="😂"
+            android:visibility="invisible"
+            android:textSize="42sp"
+            app:layout_constraintStart_toStartOf="@+id/liaa_emoji_placeholder"
+            app:layout_constraintEnd_toEndOf="@+id/liaa_emoji_placeholder"
+            app:layout_constraintBaseline_toBaselineOf="@+id/liaa_emoji_placeholder"/>
+
+        <EditText
+            android:id="@+id/liaa_emoji"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text=""
+            android:imeOptions="actionDone"
+            android:textColor="@android:color/black"
+            android:textSize="42sp"
+            android:focusable="false"
+            app:accountEmoji="@{account}"
+            app:layout_constraintStart_toStartOf="@+id/liaa_emoji_edit_placeholder"
+            app:layout_constraintEnd_toEndOf="@+id/liaa_emoji_edit_placeholder"
+            app:layout_constraintBaseline_toBaselineOf="@+id/liaa_emoji_placeholder"/>
+
+        <TextView
+            android:id="@+id/liaa_name_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="invisible"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/liaa_emoji_placeholder"
+            app:layout_constraintTop_toTopOf="@+id/liaa_emoji_placeholder"
+            app:layout_constraintBottom_toTopOf="@+id/liaa_emoji_placeholder" />
+
+        <EditText
+            android:id="@+id/liaa_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="24dp"
+            android:translationY="4dp"
+            android:singleLine="true"
+            android:text="liaa_name"
+            android:imeOptions="actionDone"
+            android:inputType="textCapSentences|textNoSuggestions"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:focusable="false"
+            android:scrollbars="none"
+            app:accountName="@{account}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/liaa_name_placeholder"
+            app:layout_constraintStart_toEndOf="@+id/liaa_name_placeholder"
+            app:layout_constraintEnd_toStartOf="@+id/liaa_swap" />
+
+        <CheckBox
+            android:id="@+id/liaa_autoclear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:translationX="-3dp"
+            android:focusable="true"
+            android:text="Autoclear"
+            app:layout_constraintBottom_toBottomOf="@+id/liaa_emoji"
+            app:layout_constraintStart_toStartOf="@+id/liaa_name" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/liaa_guideline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <ImageView
+            android:id="@+id/liaa_swap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/liaa_guideline"
+            app:layout_constraintStart_toStartOf="@+id/liaa_guideline"
+            app:layout_constraintVertical_bias="0.55"
+            app:srcCompat="@drawable/ic_swap"
+            android:contentDescription="Swap order" />
+
+        <ImageView
+            android:id="@+id/liaa_hide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/liaa_swap"
+            app:layout_constraintTop_toTopOf="@+id/liaa_swap"
+            app:srcCompat="@drawable/ic_hide"
+            android:contentDescription="Hide account" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

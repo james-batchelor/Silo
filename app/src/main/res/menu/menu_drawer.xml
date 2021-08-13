@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/budgetFragment"
+            android:icon="@drawable/ic_budget"
+            android:title="Budget" />
+        <item
+            android:id="@+id/accountsFragment"
+            android:icon="@drawable/ic_accounts"
+            android:title="Accounts" />
+        <item
+            android:id="@+id/transactionsFragment"
+            android:icon="@drawable/ic_transactions"
+            android:title="Transactions" />
+<!--        <item-->
+<!--TODO            android:id="@+id/chartsFragment"-->
+<!--            android:icon="@drawable/ic_charts"-->
+<!--            android:title="Charts" />-->
+    </group>
+
+    <item android:title="Others">
+        <menu>
+            <group android:checkableBehavior="single">
+<!--                <item-->
+<!--TODO                    android:id="@+id/backupsFragment"-->
+<!--                    android:icon="@drawable/ic_backups"-->
+<!--                    android:title="Backups" />-->
+                <item
+                    android:id="@+id/aboutFragment"
+                    android:icon="@drawable/ic_about"
+                    android:title="About Silo" />
+                <item
+                    android:id="@+id/settingsFragment"
+                    android:icon="@drawable/ic_settings"
+                    android:title="Settings" />
+            </group>
+        </menu>
+    </item>
+
+</menu>

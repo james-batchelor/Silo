@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="transaction"
+            type="com.silofinance.silo.db.Transaction" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true" >
+
+        <TextView
+            android:id="@+id/lit_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="lit_d"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55"
+            app:transactionDate="@{transaction}" />
+
+        <TextView
+            android:id="@+id/lit_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="lit_a"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lit_date"
+            app:layout_constraintStart_toEndOf="@+id/lit_date"
+            app:transactionAccount="@{transaction}" />
+
+        <ImageView
+            android:id="@+id/lit_deleted_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/lit_account"
+            app:layout_constraintEnd_toEndOf="@+id/lit_account"
+            app:layout_constraintStart_toStartOf="@+id/lit_account"
+            app:srcCompat="@drawable/ic_delete"
+            app:transactionDeletedAccount="@{transaction}" />
+
+        <ImageView
+            android:id="@+id/lit_transfer_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/lit_account"
+            app:layout_constraintEnd_toStartOf="@+id/lit_category"
+            app:layout_constraintStart_toEndOf="@+id/lit_account"
+            app:layout_constraintTop_toTopOf="@+id/lit_account"
+            app:srcCompat="@drawable/ic_transfer_arrow"
+            app:transactionTransferArrow="@{transaction}" />
+
+        <TextView
+            android:id="@+id/lit_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="lit_c"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lit_date"
+            app:layout_constraintStart_toEndOf="@+id/lit_account"
+            app:transactionCategory="@{transaction}" />
+
+        <ImageView
+            android:id="@+id/lit_deleted_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/lit_category"
+            app:layout_constraintEnd_toEndOf="@+id/lit_category"
+            app:layout_constraintStart_toStartOf="@+id/lit_category"
+            app:srcCompat="@drawable/ic_delete"
+            app:transactionDeletedCategory="@{transaction}" />
+
+        <TextView
+            android:id="@+id/lit_note"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="8dp"
+            android:text="lit_note"
+            android:singleLine="true"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lit_date"
+            app:layout_constraintEnd_toStartOf="@+id/lit_amount"
+            app:layout_constraintStart_toEndOf="@+id/lit_category"
+            app:transactionNote="@{transaction}" />
+
+        <TextView
+            android:id="@+id/lit_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="lit_amount"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lit_date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:transactionAmount="@{transaction}" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

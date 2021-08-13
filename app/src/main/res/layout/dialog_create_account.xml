@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.silofinance.silo.accounts.AccountsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/dca_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Create Account"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/dca_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="24dp"
+            android:hint="Emoji"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dca_title"/>
+
+        <EditText
+            android:id="@+id/dca_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:hint="Name"
+            android:imeOptions="actionNext"
+            android:inputType="textCapSentences|textNoSuggestions"
+            app:layout_constraintBaseline_toBaselineOf="@+id/dca_emoji"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dca_emoji" />
+
+        <EditText
+            android:id="@+id/dca_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Starting balance"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal|numberSigned"
+            app:layout_constraintEnd_toEndOf="@+id/dca_name"
+            app:layout_constraintStart_toStartOf="@+id/dca_emoji"
+            app:layout_constraintTop_toBottomOf="@+id/dca_emoji" />
+
+        <TextView
+            android:id="@+id/dca_dontworry"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="16dp"
+            android:text="Don't worry about being exact, you can edit this later (in transactions)."
+            android:textColor="@color/text_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/dca_amount"
+            app:layout_constraintTop_toBottomOf="@+id/dca_amount" />
+
+        <TextView
+            android:id="@+id/dca_credit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/dca_credit"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/dca_dontworry"
+            app:layout_constraintStart_toStartOf="@+id/dca_dontworry"
+            app:layout_constraintTop_toBottomOf="@+id/dca_dontworry"
+            app:drawableEndCompat="@drawable/ic_help" />
+
+        <TextView
+            android:id="@+id/dca_overdrawn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/dca_overdrawn"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/dca_dontworry"
+            app:layout_constraintStart_toStartOf="@+id/dca_dontworry"
+            app:layout_constraintTop_toBottomOf="@+id/dca_credit"
+            app:drawableEndCompat="@drawable/ic_help" />
+
+        <TextView
+            android:id="@+id/dca_loan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/dca_loan"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="@+id/dca_dontworry"
+            app:layout_constraintStart_toStartOf="@+id/dca_dontworry"
+            app:layout_constraintTop_toBottomOf="@+id/dca_overdrawn"
+            app:drawableEndCompat="@drawable/ic_help" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dca_loan">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/dca_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:fontFamily="sans-serif-medium"
+                android:padding="8dp"
+                android:text="CANCEL"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/dca_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:background="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:fontFamily="sans-serif-medium"
+                android:padding="8dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="OK"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                android:focusable="true" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="account"
+            type="com.silofinance.silo.db.Account" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="104dp">
+
+        <TextView
+            android:id="@+id/lia_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="lia_e"
+            android:textColor="@android:color/black"
+            android:textSize="42sp"
+            app:accountEmoji="@{account}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.55" />
+
+        <TextView
+            android:id="@+id/lia_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:singleLine="true"
+            android:text="lia_name"
+            android:maxEms="8"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:translationY="4dp"
+            app:accountName="@{account}"
+            app:layout_constraintBottom_toTopOf="@+id/lia_emoji"
+            app:layout_constraintStart_toEndOf="@+id/lia_emoji"
+            app:layout_constraintTop_toTopOf="@+id/lia_emoji" />
+
+        <TextView
+            android:id="@+id/lia_balance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="16dp"
+            android:singleLine="true"
+            android:text="lia_balance"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:translationY="4dp"
+            app:accountBalance="@{account}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lia_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/lia_name" />
+
+        <TextView
+            android:id="@+id/lia_clearedtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cleared:"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@+id/lia_pendingtext"
+            app:layout_constraintStart_toStartOf="@+id/lia_name" />
+
+        <TextView
+            android:id="@+id/lia_cleared"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="lia_cleared"
+            android:textColor="@android:color/black"
+            app:accountCleared="@{account}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lia_clearedtext"
+            app:layout_constraintStart_toStartOf="@+id/lia_pending" />
+
+        <TextView
+            android:id="@+id/lia_pendingtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pending:"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/lia_emoji"
+            app:layout_constraintStart_toStartOf="@+id/lia_clearedtext"
+            app:layout_constraintTop_toBottomOf="@+id/lia_emoji" />
+
+        <TextView
+            android:id="@+id/lia_pending"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:singleLine="true"
+            android:text="lia_pending"
+            android:textColor="@android:color/black"
+            app:accountPending="@{account}"
+            app:layout_constraintBaseline_toBaselineOf="@+id/lia_pendingtext"
+            app:layout_constraintStart_toEndOf="@+id/lia_pendingtext" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/lia_guideline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <ImageView
+            android:id="@+id/lia_income"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="4dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/lia_guideline"
+            app:layout_constraintStart_toStartOf="@+id/lia_guideline"
+            app:layout_constraintVertical_bias="0.75"
+            app:srcCompat="@drawable/ic_income"
+            android:contentDescription="Add income" />
+
+        <ImageView
+            android:id="@+id/lia_transfer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="4dp"
+            app:layout_constraintStart_toEndOf="@+id/lia_income"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/lia_income"
+            app:srcCompat="@drawable/ic_transfer"
+            android:contentDescription="Add transfer" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

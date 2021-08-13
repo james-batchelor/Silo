@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="account"
+            type="com.silofinance.silo.db.Account" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/liae_emoji"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:padding="4dp"
+            android:layout_marginTop="2dp"
+            android:text="😂"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:accountEmoji="@{account}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/liae_underline"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:background="@color/colorAccent"
+            app:accountSelected="@{account}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/liae_emoji"
+            app:layout_constraintStart_toStartOf="@+id/liae_emoji" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
