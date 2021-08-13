@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Home Screen Preference -->
+    <string-array name="home_entries">
+        <item>Budget</item>
+        <item>Accounts</item>
+        <item>Transactions</item>
+    </string-array>
+
+    <string-array name="home_values">
+        <item>budget</item>
+        <item>accounts</item>
+        <item>transactions</item>
+    </string-array>
+
+    <!-- Date Format Preference -->
+    <string-array name="date_entries">
+        <item>Day/Month/Year</item>
+        <item>Day.Month.Year</item>
+        <item>Month/Day/Year</item>
+        <item>Month.Day.Year</item>
+        <item>Year/Month/Day</item>
+        <item>Year.Month.Day</item>
+    </string-array>
+
+    <string-array name="date_values">
+        <item>dmySlash</item>
+        <item>dmyDot</item>
+        <item>mdySlash</item>
+        <item>mdyDot</item>
+        <item>ymdSlash</item>
+        <item>ymdDot</item>
+    </string-array>
+
+    <!-- Currency Format Preference -->
+    <string-array name="currency_entries">
+        <item>1,234.56</item>
+        <item>1.234,56</item>
+    </string-array>
+
+    <string-array name="currency_values">
+        <item>1,234.56</item>
+        <item>1.234,56</item>
+    </string-array>
+</resources>

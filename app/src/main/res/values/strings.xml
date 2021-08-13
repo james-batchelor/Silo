@@ -1,0 +1,24 @@
+<resources>
+    <string name="appName">Silo</string>
+
+    <string name="misc_pref_file_key">com.silofinance.silo.MISC_PREF_FILE_KEY</string>
+    <string name="tbb_pref_file_key">com.silofinance.silo.TBB_PREF_FILE_KEY</string>
+    <string name="a_emoji_pref_file_key">com.silofinance.silo.A_EMOJI_PREF_FILE_KEY</string>
+    <string name="c_emoji_pref_file_key">com.silofinance.silo.C_EMOJI_PREF_FILE_KEY</string>
+
+    <string name="activeTabTitle">Active</string>
+    <string name="hiddenTabTitle">Hidden</string>
+
+    <string name="dca_credit"><u>What if I\'m using a credit card?</u></string>
+    <string name="dca_overdrawn"><u>What if I\'m overdrawn or in debt?</u></string>
+    <string name="dca_loan"><u>What if I\'m paying off a loan?</u></string>
+
+    <string name="dcah_credit_text">‣ Make an account for the credit card with a starting balance of 0.\n\n‣ Use it as normal and let its balance go further and further negative.\n\n‣ When you pay off the card, transfer money from a normal account into the credit card.\n\n‣ If you incurred charges, make a charges category and pay them off using expenses.</string>
+    <string name="dcah_overdrawn_text">‣ Make a category that represents the debt of the account. Then move money from it into \'to be budgeted\', so that the category has the same amount of available money as the balance of the account.\n\n‣ When you budget your categories, first move money from the debt category into \‘to be budgeted\’.\n\n‣ Aim to get the debt category to 0. If you transfer to the overdrawn account from another account, you need to move money from non-debt categories to match.\n\n‣ If the debt increases (e.g. due to a fine), represent this using an expense in the overdrawn account with the debt category.</string>
+    <string name="dcah_loan_text">‣ Make a category and work towards filling it with the money you will use to repay the loan.\n\n‣ When you repay the loan, empty the category using an expense.\n\n‣ If you incurred charges, make a charges category and pay them off using expenses.</string>
+
+    <string name="dcch_text">‣ You can generally separate categories into two types. The first is a spending category, where you give it how much money you expect to spend in one budget cycle (week/month/…).\n\n‣ The other type is a savings category. These just hold money across many budget cycles. You should grow these a little bit each cycle so that you don’t have to find all the money all at once.\n\n‣ Still not sure what categories to use? Here are some ideas. For the spending type: rent, utilities, internet, transport, groceries, phone bill, gym, health, appearance, snacks, dining out, junk food, social, entertainment and surprises. For the saving type: clothes, education, holidays, home maintenance, car maintenance, tech and an emergency fund.\n\n‣ The choice is yours though, and the more detailed you are the better. If you regularly spend at a certain coffee or sandwich shop, giving it its own category will show you exactly how much you spend there. And then you can be the one to decide if that\'s really how you want your money to work for you.\n\n‣ And finally: don’t worry about getting your budget exactly right, you can move money between categories as and when you need to. Budgeting is about being flexible and unexpected things are expected to happen!</string>
+
+    <string name="dobi_text">…that you can tap and hold the \'OK\' button to add multiple transfers without closing the window? This also works for incomes and expenses too, and for the \'MOVE\' button when moving money between categories.</string>
+
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+<!--        pretty nice colours, but too dark. good for dark mode?-->
+<!--        <color name="colorPrimary">#113240</color>-->
+<!--        <color name="colorPrimaryDark">#07212b</color>-->
+<!--        <color name="colorAccent">#fea520</color>-->
+
+
+    <color name="colorPrimary">#004eb7</color>
+    <color name="colorPrimaryDark">#002786</color>
+    <color name="colorAccent">#ff9e10</color>
+
+    <color name="text_gray">#565656</color>
+    <color name="green">#1faa00</color>
+    <color name="red">#dd2c00</color>
+
+</resources>
